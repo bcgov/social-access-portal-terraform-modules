@@ -11,6 +11,7 @@ variable "azureidir_realm_name" {}
 variable "bceidbasic_realm_name" {}
 variable "bceidbusiness_realm_name" {}
 variable "bceidboth_realm_name" {}
+variable "bcsc_realm_name" {}
 
 variable "idir_client_id" {}
 variable "idir_client_secret" {}
