@@ -38,3 +38,10 @@ module "bceidboth_scope_mappers" {
   scope_name = var.bceidboth_realm_name
   attributes = local.bceidboth_attributes
 }
+
+module "bcsc_scope_mappers" {
+  source     = "../../scope-attribute-mappers"
+  realm_id   = module.realm.id
+  scope_name = var.bcsc_realm_name
+  attributes = local.bcsc_attributes
+}
