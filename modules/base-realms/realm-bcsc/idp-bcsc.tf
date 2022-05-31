@@ -2,9 +2,10 @@ module "bcsc_idp" {
   source            = "../../oidc-idp"
   realm_id          = module.realm.id
   alias             = var.realm_name
-  authorization_url = "${var.bcsc_keycloak_url}/auth"
-  token_url         = "${var.bcsc_keycloak_url}/token"
-  user_info_url     = "${var.bcsc_keycloak_url}/userinfo"
+  authorization_url = "${var.bcsc_keycloak_url}/login/oidc/authorize"
+  token_url         = "${var.bcsc_keycloak_url}/oauth2/token"
+  user_info_url     = "${var.bcsc_keycloak_url}/oauth2/userinfo"
+  jwks_url          = "${var.bcsc_keycloak_url}/oauth2/jwk"
   client_id         = "<UPDATE_ME>"
   client_secret     = "<UPDATE_ME>"
 }
