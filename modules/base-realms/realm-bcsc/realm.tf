@@ -5,8 +5,8 @@ module "realm" {
 
 resource "keycloak_openid_client_scope" "idp_scope" {
   realm_id               = module.realm.id
-  name                   = var.realm_name
-  description            = "${var.realm_name} idp client scope"
+  name                   = var.bcsc_idp_alias
+  description            = "${var.bcsc_idp_alias} idp client scope"
   include_in_token_scope = false
 }
 
@@ -19,7 +19,7 @@ data "keycloak_authentication_execution" "browser_identity_provider_redirector" 
 resource "keycloak_authentication_execution_config" "browser_identity_provider_redirector_config" {
   realm_id     = module.realm.id
   execution_id = data.keycloak_authentication_execution.browser_identity_provider_redirector.id
-  alias        = var.realm_name
+  alias        = var.bcsc_idp_alias
   config = {
     defaultProvider = var.realm_name
   }
