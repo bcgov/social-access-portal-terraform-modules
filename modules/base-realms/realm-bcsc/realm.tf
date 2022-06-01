@@ -21,6 +21,6 @@ resource "keycloak_authentication_execution_config" "browser_identity_provider_r
   execution_id = data.keycloak_authentication_execution.browser_identity_provider_redirector.id
   alias        = var.bcsc_idp_alias
   config = {
-    defaultProvider = var.realm_name
+    defaultProvider = var.bcsc_idp_alias
   }
 }
