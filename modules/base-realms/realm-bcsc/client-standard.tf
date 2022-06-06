@@ -5,7 +5,6 @@ module "standard_client" {
   valid_redirect_uris = ["${var.keycloak_url}/realms/${var.standard_realm_name}/broker/${var.realm_name}/endpoint"]
   public_attrs        = [
     "address",
-    "address",
     "age",
     "age19OrOver",
     "birthDate",
@@ -13,7 +12,6 @@ module "standard_client" {
     "display_name",
     "email",
     "firstName",
-    "gender",
     "gender",
     "lastName",
     "locality",
