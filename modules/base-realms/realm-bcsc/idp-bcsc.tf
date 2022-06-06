@@ -112,19 +112,6 @@ resource "keycloak_custom_identity_provider_mapper" "bcsc_sex" {
   }
 }
 
-resource "keycloak_custom_identity_provider_mapper" "bcsc_sex" {
-  realm                    = module.realm.id
-  name                     = "sex"
-  identity_provider_alias  = module.bcsc_idp.alias
-  identity_provider_mapper = "oidc-user-attribute-idp-mapper"
-
-  extra_config = {
-    syncMode         = "INHERIT"
-    "claim"          = "gender"
-    "user.attribute" = "gender"
-  }
-}
-
 resource "keycloak_custom_identity_provider_mapper" "bcsc_locality" {
   realm                    = module.realm.id
   name                     = "locality"
