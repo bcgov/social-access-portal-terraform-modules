@@ -2,10 +2,10 @@ module "azureidir_idp" {
   source            = "../../oidc-idp"
   realm_id          = module.realm.id
   alias             = var.azureidir_realm_name
-  authorization_url = "${var.keycloak_url}/auth/realms/${var.azureidir_realm_name}/protocol/openid-connect/auth"
-  token_url         = "${var.keycloak_url}/auth/realms/${var.azureidir_realm_name}/protocol/openid-connect/token"
-  user_info_url     = "${var.keycloak_url}/auth/realms/${var.azureidir_realm_name}/protocol/openid-connect/userinfo"
-  jwks_url          = "${var.keycloak_url}/auth/realms/${var.azureidir_realm_name}/protocol/openid-connect/certs"
+  authorization_url = "${var.keycloak_url}/realms/${var.azureidir_realm_name}/protocol/openid-connect/auth"
+  token_url         = "${var.keycloak_url}/realms/${var.azureidir_realm_name}/protocol/openid-connect/token"
+  user_info_url     = "${var.keycloak_url}/realms/${var.azureidir_realm_name}/protocol/openid-connect/userinfo"
+  jwks_url          = "${var.keycloak_url}/realms/${var.azureidir_realm_name}/protocol/openid-connect/certs"
   client_id         = var.azureidir_client_id
   client_secret     = var.azureidir_client_secret
 }
