@@ -17,3 +17,13 @@ variable "standard_realm_name" {
 variable "bcsc_idp_alias" {
   default = "bcsc"
 }
+
+variable "bcsc_client_id" {
+  sensitive = true
+  type = string
+}
+
+variable "bcsc_client_secret" {
+  sensitive = true
+  type = string
+}
