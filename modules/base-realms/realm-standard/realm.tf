@@ -4,8 +4,25 @@ locals {
   bceidbasic_attributes    = ["display_name", "bceid_user_guid", "bceid_username"]
   bceidbusiness_attributes = ["display_name", "bceid_user_guid", "bceid_business_guid", "bceid_business_name", "bceid_username"]
   bceidboth_attributes     = ["display_name", "bceid_user_guid", "bceid_business_guid", "bceid_business_name", "bceid_username"]
-  bcsc_attributes     = ["display_name", "bceid_user_guid", "bceid_business_guid", "bceid_business_name", "bceid_username"]
+  bcsc_attributes     = [
+    "address",
+    "age",
+    "age19OrOver",
+    "birthDate",
+    "country",
+    "display_name",
+    "email",
+    "firstName",
+    "gender",
+    "lastName",
+    "locality",
+    "postalCode",
+    "region",
+    "streetAddress"
+  ]
 }
+
+
 
 module "realm" {
   source      = "../../realm"
