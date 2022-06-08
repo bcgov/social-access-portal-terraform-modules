@@ -31,6 +31,8 @@ resource "keycloak_oidc_identity_provider" "this" {
   disable_user_info                       = var.disable_user_info
   accepts_prompt_none_forward_from_client = var.accepts_prompt_none_forward_from_client
 
+  default_scopes = var.default_scopes
+
   extra_config = {
     "clientAuthMethod" = var.client_auth_method
   }
