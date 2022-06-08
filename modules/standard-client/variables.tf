@@ -176,3 +176,44 @@ variable "direct_grant_authentication_flow" {
   description = "Authentication direct grant flow id"
   default     = ""
 }
+
+
+variable "bcsc_realm_name" {
+  type      = string
+}
+
+variable "bcsc_realm_id" {
+  type      = string
+}
+
+variable "standard_realm_name" {
+  type      = string
+}
+
+variable "standard_realm_id" {
+  type      = string
+}
+
+variable "bcsc_keycloak_url" {
+  type = string
+}
+
+variable "bcsc_idp_alias" {
+  type = string
+}
+
+variable "bcsc_client_id" {
+  sensitive = true
+  type = string
+}
+
+variable "bcsc_client_secret" {
+  sensitive = true
+  type = string
+}
+
+variable "idp_redirector_execution_id" {
+  type = string
+}
+
+
