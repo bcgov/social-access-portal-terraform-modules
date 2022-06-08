@@ -21,7 +21,7 @@ module "bcsc_idp_standard" {
   source            = "../oidc-idp"
   realm_id          = var.standard_realm_id
   alias             = var.idp_alias
-  authorization_url = "${var.keycloak_url}/realms/${var.realm_name}/protocol/openid-connect/auth"
+  authorization_url = "${var.keycloak_url}/realms/${var.realm_name}/protocol/openid-connect/auth?kc_idp_hint=${var.idp_alias}"
   token_url         = "${var.keycloak_url}/realms/${var.realm_name}/protocol/openid-connect/token"
   user_info_url     = "${var.keycloak_url}/realms/${var.realm_name}/protocol/openid-connect/userinfo"
   jwks_url          = "${var.keycloak_url}/realms/${var.realm_name}/protocol/openid-connect/certs"
