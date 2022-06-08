@@ -59,9 +59,11 @@ resource "keycloak_openid_client_default_scopes" "idp_scopes" {
   client_id = keycloak_openid_client.this.id
 
   default_scopes = distinct(
-    concat(["profile", "email"],
-    contains(var.idps, "bcsc")? [var.bcsc_idp_alias] : []),
-    setsubtract(var.idps, ["bcsc"])
+    concat(
+      ["profile", "email"],
+      contains(var.idps, "bcsc")? [var.bcsc_idp_alias] : [],
+      setsubtract(var.idps, ["bcsc"])
+    )
   )
 }
 
