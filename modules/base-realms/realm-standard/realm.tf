@@ -22,8 +22,6 @@ locals {
   ]
 }
 
-
-
 module "realm" {
   source      = "../../realm"
   realm_name  = var.standard_realm_name

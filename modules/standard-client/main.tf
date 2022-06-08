@@ -58,7 +58,11 @@ resource "keycloak_openid_client_default_scopes" "idp_scopes" {
   realm_id  = var.realm_id
   client_id = keycloak_openid_client.this.id
 
-  default_scopes = concat(["profile", "email"], var.idps)
+  default_scopes = distinct(
+    concat(["profile", "email"],
+    var.idps,
+    contains(var.idps, "bcsc")? [var.bcsc_idp_alias] : [])
+  )
 }
 
 resource "keycloak_openid_client_optional_scopes" "client_optional_scopes" {
@@ -98,4 +102,21 @@ resource "keycloak_generic_client_protocol_mapper" "access_token_aud" {
     "id.token.claim" : "false",
     "access.token.claim" : "true",
   }
+}
+
+module "bcsc-idp" {
+  source      = "../bcsc-idp"
+  realm_id    = var.bcsc_realm_id
+  realm_name  = var.bcsc_realm_name
+  bcsc_keycloak_url = var.bcsc_keycloak_url
+  keycloak_url = var.keycloak_url
+  idp_alias = var.bcsc_idp_alias
+  client_id = var.bcsc_client_id
+  client_secret = var.bcsc_client_secret
+  standard_realm_name = var.standard_realm_name
+  standard_realm_id = var.standard_realm_id
+  idp_redirector_execution_id = var.idp_redirector_execution_id
+
+  # Only create BCSC IDP for clients that need it
+  count = contains(var.idps, "bcsc")? 1 : 0
 }

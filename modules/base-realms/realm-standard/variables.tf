@@ -27,6 +27,3 @@ variable "bceidbusiness_client_secret" {}
 
 variable "bceidboth_client_id" {}
 variable "bceidboth_client_secret" {}
-
-variable "bcsc_client_id" {}
-variable "bcsc_client_secret" {}
