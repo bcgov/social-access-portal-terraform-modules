@@ -198,6 +198,10 @@ variable "bcsc_keycloak_url" {
   type = string
 }
 
+variable "keycloak_url" {
+  type = string
+}
+
 variable "bcsc_idp_alias" {
   type = string
 }

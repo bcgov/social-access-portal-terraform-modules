@@ -1,5 +1,5 @@
 resource "keycloak_openid_client_scope" "idp_scope" {
-  realm_id               = var.realm_id
+  realm_id               = var.standard_realm_id
   name                   = var.idp_alias
   description            = "${var.idp_alias} idp client scope"
   include_in_token_scope = false

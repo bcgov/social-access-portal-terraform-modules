@@ -108,7 +108,8 @@ module "bcsc-idp" {
   source      = "../bcsc-idp"
   realm_id    = var.bcsc_realm_id
   realm_name  = var.bcsc_realm_name
-  keycloak_url = var.bcsc_keycloak_url
+  bcsc_keycloak_url = var.bcsc_keycloak_url
+  keycloak_url = var.keycloak_url
   idp_alias = var.bcsc_idp_alias
   client_id = var.bcsc_client_id
   client_secret = var.bcsc_client_secret
