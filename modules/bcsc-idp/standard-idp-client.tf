@@ -1,5 +1,5 @@
 locals {
-  bcsc_attributes     = [
+  bcsc_attributes = [
     "address",
     "age",
     "age19OrOver",
@@ -13,7 +13,8 @@ locals {
     "locality",
     "postalCode",
     "region",
-    "streetAddress"
+    "streetAddress",
+    "bcsc_user_id"
   ]
 }
 
@@ -46,5 +47,24 @@ resource "keycloak_custom_identity_provider_mapper" "bcsc_username" {
   extra_config = {
     syncMode = "INHERIT"
     template = "$${CLAIM.preferred_username}@$${ALIAS}"
+  }
+}
+
+resource "keycloak_generic_client_protocol_mapper" "bcsc_idp_client_attribute_mappers" {
+  for_each = toset(local.bcsc_attributes)
+
+  realm_id  = var.standard_realm_id
+  client_id = module.standard_client.client_id
+
+  name            = each.value
+  protocol        = "openid-connect"
+  protocol_mapper = "oidc-usermodel-attribute-mapper"
+  config = {
+    "user.attribute" : each.value,
+    "claim.name" : each.value,
+    "jsonType.label" : "String",
+    "id.token.claim" : "true",
+    "access.token.claim" : "true",
+    "userinfo.token.claim" : "true"
   }
 }

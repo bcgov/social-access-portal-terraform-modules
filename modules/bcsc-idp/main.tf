@@ -191,3 +191,16 @@ resource "keycloak_custom_identity_provider_mapper" "bcsc_street_address" {
     "user.attribute" = "streetAddress"
   }
 }
+
+resource "keycloak_custom_identity_provider_mapper" "bcsc_user_id" {
+  realm                    = var.realm_id
+  name                     = "bcsc_user_id"
+  identity_provider_alias  = module.bcsc_idp.alias
+  identity_provider_mapper = "oidc-user-attribute-idp-mapper"
+
+  extra_config = {
+    syncMode         = "INHERIT"
+    "claim"          = "sub"
+    "user.attribute" = "bcsc_user_id"
+  }
+}

@@ -17,6 +17,7 @@ module "standard_client" {
     "locality",
     "postalCode",
     "region",
-    "streetAddress"
+    "streetAddress",
+    "bcsc_user_id"
   ]
 }
