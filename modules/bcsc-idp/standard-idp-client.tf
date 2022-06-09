@@ -28,6 +28,7 @@ module "bcsc_idp_standard" {
   jwks_url          = "${var.keycloak_url}/realms/${var.realm_name}/protocol/openid-connect/certs"
   client_id         = module.standard_client.client_id
   client_secret     = module.standard_client.client_secret
+  display_name      = var.bcsc_idp_display_name
 }
 
 module "bcsc_idp_mappers" {
