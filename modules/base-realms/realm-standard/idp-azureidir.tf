@@ -8,6 +8,7 @@ module "azureidir_idp" {
   jwks_url          = "${var.keycloak_url}/realms/${var.azureidir_realm_name}/protocol/openid-connect/certs"
   client_id         = var.azureidir_client_id
   client_secret     = var.azureidir_client_secret
+  display_name      = var.azureidir_idp_display_name
 }
 
 module "azureidir_idp_mappers" {
