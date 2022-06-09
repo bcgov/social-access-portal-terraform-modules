@@ -40,3 +40,7 @@ variable "idp_redirector_execution_id" {
   type = string
 }
 
+variable "bcsc_idp_display_name" {
+  type = string
+  default = ""
+}

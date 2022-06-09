@@ -9,6 +9,7 @@ module "bcsc_idp" {
   client_id         = "${var.client_id}"
   client_secret     = "${var.client_secret}"
   default_scopes    = "openid profile email address"
+  display_name      = var.bcsc_idp_display_name
 }
 
 resource "keycloak_custom_identity_provider_mapper" "bcsc_displayname" {
