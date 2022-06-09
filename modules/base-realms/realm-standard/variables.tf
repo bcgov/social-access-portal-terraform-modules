@@ -18,7 +18,6 @@ variable "azureidir_idp_display_name" {}
 variable "bceidbasic_idp_display_name" {}
 variable "bceidbusiness_idp_display_name" {}
 variable "bceidboth_idp_display_name" {}
-variable "bcsc_idp_display_name" {}
 
 variable "idir_client_id" {}
 variable "idir_client_secret" {}
