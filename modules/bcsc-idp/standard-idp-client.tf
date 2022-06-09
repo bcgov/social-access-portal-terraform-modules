@@ -55,7 +55,7 @@ resource "keycloak_generic_client_protocol_mapper" "bcsc_idp_client_attribute_ma
   for_each = toset(local.bcsc_attributes)
 
   realm_id  = var.standard_realm_id
-  client_id = module.standard_client.client_id
+  client_id = var.app_client_id
 
   name            = each.value
   protocol        = "openid-connect"

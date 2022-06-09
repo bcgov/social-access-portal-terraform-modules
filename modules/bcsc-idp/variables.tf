@@ -44,3 +44,7 @@ variable "bcsc_idp_display_name" {
   type = string
   default = ""
 }
+
+variable "app_client_id" {
+  type = string
+}
