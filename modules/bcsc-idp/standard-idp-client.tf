@@ -51,7 +51,7 @@ resource "keycloak_custom_identity_provider_mapper" "bcsc_username" {
 }
 
 resource "keycloak_generic_client_protocol_mapper" "bcsc_idp_client_attribute_mappers" {
-  for_each = local.bcsc_attributes
+  for_each = toset(local.bcsc_attributes)
 
   realm_id  = var.standard_realm_id
   client_id = module.standard_client.client_id
