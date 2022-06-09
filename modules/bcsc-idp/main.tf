@@ -8,6 +8,7 @@ module "bcsc_idp" {
   jwks_url          = "${var.bcsc_keycloak_url}/oauth2/jwk"
   client_id         = "${var.client_id}"
   client_secret     = "${var.client_secret}"
+  default_scopes    = "openid profile email address"
 }
 
 resource "keycloak_custom_identity_provider_mapper" "bcsc_displayname" {
