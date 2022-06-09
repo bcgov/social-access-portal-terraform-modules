@@ -122,6 +122,7 @@ module "bcsc-idp" {
   standard_realm_id = var.standard_realm_id
   idp_redirector_execution_id = var.idp_redirector_execution_id
   bcsc_idp_display_name = var.bcsc_idp_display_name
+  app_client_id = keycloak_openid_client.this.id
 
   # Only create BCSC IDP for clients that need it
   count = contains(var.idps, "bcsc")? 1 : 0
