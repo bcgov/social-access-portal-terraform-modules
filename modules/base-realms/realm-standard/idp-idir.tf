@@ -8,6 +8,7 @@ module "idir_idp" {
   jwks_url          = "${var.keycloak_url}/realms/${var.idir_realm_name}/protocol/openid-connect/certs"
   client_id         = var.idir_client_id
   client_secret     = var.idir_client_secret
+  display_name      = var.idir_idp_display_name
 }
 
 module "idir_idp_mappers" {

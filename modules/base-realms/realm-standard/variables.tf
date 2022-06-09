@@ -13,6 +13,13 @@ variable "bceidbusiness_realm_name" {}
 variable "bceidboth_realm_name" {}
 variable "bcsc_realm_name" {}
 
+variable "idir_idp_display_name" {}
+variable "azureidir_idp_display_name" {}
+variable "bceidbasic_idp_display_name" {}
+variable "bceidbusiness_idp_display_name" {}
+variable "bceidboth_idp_display_name" {}
+variable "bcsc_idp_display_name" {}
+
 variable "idir_client_id" {}
 variable "idir_client_secret" {}
 

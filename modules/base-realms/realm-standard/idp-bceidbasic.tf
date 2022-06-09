@@ -8,6 +8,7 @@ module "bceidbasic_idp" {
   jwks_url          = "${var.keycloak_url}/realms/${var.bceidbasic_realm_name}/protocol/openid-connect/certs"
   client_id         = var.bceidbasic_client_id
   client_secret     = var.bceidbasic_client_secret
+  display_name      = var.bceidbasic_idp_display_name
 }
 
 module "bceidbasic_idp_mappers" {

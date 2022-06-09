@@ -8,6 +8,7 @@ module "bceidbusiness_idp" {
   jwks_url          = "${var.keycloak_url}/realms/${var.bceidbusiness_realm_name}/protocol/openid-connect/certs"
   client_id         = var.bceidbusiness_client_id
   client_secret     = var.bceidbusiness_client_secret
+  display_name      = var.bceidbusiness_idp_display_name
 }
 
 module "bceidbusiness_idp_mappers" {
