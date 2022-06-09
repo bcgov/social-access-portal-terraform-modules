@@ -200,7 +200,7 @@ resource "keycloak_custom_identity_provider_mapper" "bcsc_user_id" {
 
   extra_config = {
     syncMode         = "INHERIT"
-    "claim"          = "bcsc_user_id"
+    "claim"          = "sub"
     "user.attribute" = "bcsc_user_id"
   }
 }
